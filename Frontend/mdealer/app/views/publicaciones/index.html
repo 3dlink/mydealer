@@ -1,0 +1,122 @@
+<div class="publicaciones-index listado_publicaciones">
+	<div class="menu_left menu">
+				<div>
+					<h3>FILTROS</h3>
+					<div class="form-group">
+						<select name="" id="" class="select_md form-control">
+							<option value="">Edicion</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select name="" id="" class="select_md form-control">
+							<option value="">Estado</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select name="" id="" class="select_md form-control">
+							<option value="">Provincia</option>
+						</select>
+					</div>
+				</div>
+				<div class="type_sale">
+					<h3>TIPO DE VENTA</h3>
+					<span class="icon-mdn_ventas_circle"></span>
+					<span class="icon-mdn_subastas_circle"></span>
+				</div>
+				<div>
+					<h3><span class="icon-mdn_calendar" style="font-size: 30px;"></span>Año</h3>
+					<div class="form-group">
+						<select type="text" class="form-control select_md">
+							<option value="">2012</option>
+						</select>
+					</div>
+					
+				</div>
+				<div>
+					<h3><span class="icon-mdn_currency" style="font-size: 30px;"></span> Precio</h3>
+					<div class="form-group">
+						<input type="number" class="form-control select_md">
+					</div>
+					
+				</div>
+				<div>
+					<h3><span class="icon-mdn_millaje" style="font-size: 30px;"></span> Millas</h3>
+					<div class="form-group">
+						<input type="number" class="form-control select_md">
+					</div>
+					
+				</div>
+				<div>
+					<h3><span class="icon-mdn_combustible" style="font-size: 30px;"></span> Combustible</h3>
+					<div class="form-group">
+						<select class="form-control select_md">
+							<option value="">Diesel</option>
+						</select>
+					</div>
+					
+				</div>
+
+				<div class="publicidad_menu"></div>
+	</div>
+	<div class="container">
+		<div class="resultado_publicaciones">
+			<div class="titulo">
+				<h4 class="tittle">RESULTADOS</h4>
+				<div class="form-group">
+					<select name="" id="" class="form-control select_md" style="max-width:210px; float:left;margin-right:10px;">
+						<option value="">Precio (Mayor a Menor)</option>
+					</select>
+					<!-- <div style="float:right;" class="mdn-paginador-resultados">
+						<span ng-repeat="key in [1,2,3,4,5,6]">{{key}}</span>
+					</div> -->
+				</div>
+			</div>
+			<div class="grid_publicaciones">
+				<div class="results" ng-repeat="key in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+					<div class="col-xs-4 content">
+						<div class="result">
+							<div class="image-background"></div>
+							<div class="tittle-result">
+								<h4><b>HYUNDAI TUCSON</b></h4>
+								<span style="color:black;">Marca / Modelo / Trim / Descripción básica</span>
+							</div>
+							<div class="options">
+								<div class="col-xs-5" style="padding:0; padding-right:.3em;">
+									<span>
+										<i class="icon-mdn_calendar"></i>
+										<span>2003</span>
+									</span>
+								</div>
+								<div class="col-xs-7" style="padding:0; padding-right:.3em;">
+									<span>
+										<i class="icon-mdn_millaje"></i>
+										<span>40 Millas</span>
+									</span>
+								</div>
+								<div class="col-xs-5" style="padding:0; padding-right:.3em;">
+									<span>
+										<i class="icon-mdn_combustible"></i>
+										<span>Diesel</span>
+									</span>
+								</div>
+								<div class="col-xs-7" style="padding:0; padding-right:.3em;">
+									<span>
+										<i style="color:black;" class="icon-mdn_subastas_circle"></i>
+										<span>Subasta</span>
+									</span>
+								</div>
+							</div>
+							<div class="price">
+								<div class="col-xs-6" style="padding-top: 3px;"><h5 style="text-align:right;">DOP 515.120</h5></div>
+								<div class="col-xs-6" style="text-align: center;"><span class="icon-mdn_star"></span></div>
+							</div>
+							<div class="actions">
+								<button>DETALLES</button>
+							</div>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>

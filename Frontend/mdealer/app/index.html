@@ -1,0 +1,153 @@
+<!doctype html>
+<html style="*background-image: url('images/desing/06_A_Coctacto.jpg'); *height:2000px; background-repeat: no-repeat; background-size: 100%;">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="libs/mdn-font/css/font-mdn.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="../bower_components/slick-carousel/slick/slick-theme.css" />
+    <link rel="stylesheet" href="../bower_components/angular-native-datepicker/build/themes/default.css" />
+    <link rel="stylesheet" href="../bower_components/angular-native-datepicker/build/themes/default.date.css" />
+    <link rel="stylesheet" href="../bower_components/angular-native-datepicker/build/themes/default.time.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="myDealerNetworkApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="mdn-header">
+      <div class="col-xs-3">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="col-xs-6">
+        <form class="input-group mdn-header-options-search" ng-submit="search()">
+          <span class="input-group-btn mdn-glyp">
+            <span class="icon-mdn_search mdn-ico"></span>
+          </span>
+          <input type="text" ng-focus="show_fastS=true" ng-blur="delay()" class="form-control input-search" ng-keyup="searchBY()" name="search" ng-model="searchInput" placeholder="Marca, Modelo o Edición">
+          <span class="input-group-btn">
+            <button class="btn btn-default button-search" type="submit">BUSCAR</button>
+          </span>
+          <div ng-click="show_fastS=false" class="search-fast-result" ng-show="false"><!--ng-show="show_fastS"-->
+              <span class="tittleSection" ng-if="models.length > 0">Modelo</span>
+              <a ng-href="#/publicacion/{{busqueda.id}}" ng-repeat="(key, busqueda) in busquedas | filter:{Modelo:  searchInput } as models">
+                {{busqueda.Modelo}}
+              </a>
+              <span class="tittleSection" ng-if="mark.length > 0">Marca</span>
+              <a ng-href="#/publicaciones/?Marca={{busqueda.Marca}}" ng-repeat="(key, busqueda) in busquedas | filter:{Marca:  searchInput} as mark">
+                {{busqueda.Marca}}
+              </a>
+              <span class="tittleSection" ng-if="edition.length > 0">Edición</span>
+              <a ng-href="#/publicaciones/?Edicion={{busqueda.Edicion}}" ng-repeat="(key, busqueda) in busquedas | filter:{Edicion:  searchInput} as edition">
+                {{busqueda.Edicion}}
+              </a>
+
+              <h3 style="text-align:center; color:black;" ng-if="busquedas.length == 0">sin resultados</h3>
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <div class="mdm-header-option-user">
+              <div class="mdn-header-notifications">
+                <span>6</span>
+              </div>
+              <div class="mdm-header-option-user-options">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle mdm-menu-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#/publicaciones">publicaciones</a></li>
+                    <li><a href="#/publicacion/1">publicacion</a></li>
+                    <li><a href="#/perfil">perfil</a></li>
+                    <li><a href="#/edit/1">editar</a></li>
+                    <li><a href="#/dealer/1">dealer</a></li>
+                    <li><a href="#/contact">contacto</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mdm-header-option-user-perfil">
+                <div class="glyphicon glyphicon-picture"></div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="mdn-primary-content">
+      <div ui-view></div>
+    </div>
+    <footer class="mdn-footer">
+      <div class="col-xs-6 divleft">
+        <p>
+          <b>MyDealer</b><sup>TM</sup> y <b>MyDealer Network</b><sup>TM</sup> son marcas registradas de buildingSoftware JE, SRL. Todos los derechos reservados <br>
+          <b><span class="fa fa-copyright"></span> buildingSoftware 2016</b> 
+        </p>
+      </div>
+      <div class="col-xs-6 divright">
+        <button type="button">CONTACTAR</button>
+        <span>
+          <span class="icon-mdn_facebook"></span>
+          <span class="icon-mdn_twitter"></span>
+          <span class="icon-mdn_gplus"></span>
+          <span class="icon-mdn_rrs"></span>          
+        </span>
+      </div>
+    </footer>
+
+    <!--<div class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>-->
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="../bower_components/angular-slick/dist/slick.js"></script>
+    <script src="../bower_components/angular-native-datepicker/build/angular-datepicker.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+      <link rel="import" href="../bower_components/google-map/google-map.html">
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/publicaciones.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

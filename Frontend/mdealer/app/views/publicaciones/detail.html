@@ -1,0 +1,263 @@
+<div ng-init="initPublicacion()"></div>
+<div class="publicacion-detail">
+	<div class="container" style="max-width: 1000px;">
+		<div class="col-xs-12">
+			<div class="col-xs-12 tittle-detail" style="padding-left: 0;">
+				<h1>{{publicacion.Modelo}}HYUNDAI TUCSON</h1>
+				<hr>
+				<h1>AUTO TREN</h1>
+			</div>		
+			<div class="col-xs-12" style="padding-left: 0;margin-left: -12px;    margin-bottom: 25px;">
+				<div class="mdn-detail-first-params">
+					<i class="icon-mdn_calendar"></i>
+					<span>{{publicacion['Año']}}Año</span>
+				</div>
+				<div class="mdn-detail-first-params">
+					<i class="icon-mdn_millaje"></i>
+					<span>{{publicacion.Millaje}} millas</span>
+				</div>
+				<div class="mdn-detail-first-params">
+					<i class="icon-mdn_combustible"></i>
+					<span>{{publicacion.Combustible}}Combustible</span>
+				</div>
+				<div class="mdn-detail-first-params">
+					<!-- <i class="icon-mdn_subastas_circle" style="color:black;"></i> -->
+					<i class="icon-mdn_ventas_circle" style="color:black;"></i>
+					<span ng-if="publicacion.type">Compra</span>
+					<span ng-if="!publicacion.type">Subasta</span>
+				</div>
+			</div>
+			<div class="detail-fast">
+				<div class="col-xs-4" style="padding-left: 0;">
+					<h4 class="naranja">PRECIO: DOP {{publicacion.PrecioEnDOP|currency}} 850,000.00 </h4>
+				</div>
+				<div class="col-xs-4">
+					<h4>Cuotas: DOP 18,550.00 
+					<i class="glyphicon glyphicon-info-sign" >
+						<div  class="disclaimer" style="background-image: url('images/disclaimer.png');">
+							Basado en un préstamo de 60 meses con un inicial <br>
+							de              %, a una tasa de referencia de             % anual. La cuota<br>
+							mostrada no es garantizada, sólo un estimado. No incluye seguro.
+						</div>
+					</i>
+					</h4> 
+				</div>
+				<div class="col-xs-4" style="text-align:right; padding-right: 0;">
+					<span class="favorito">
+						<i class="icon-mdn_star"></i>
+					</span>
+					<button class="mdn-btn-naranja">PERFIL DEALER</button>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+		<div>
+			<div class="col-xs-12">
+				<div class="col-xs-12 subasta" ng-if="!publicacion.type">				
+					<h3>SUBASTA</h3>
+					<div>
+						<div class="col-xs-3 of">[4 ofertas] | <span class="naranja">Restan: 4 dias</span></div>
+						<div class="col-xs-2">
+							<div style="text-align:center;font-size:13px;">Oferta actual:</div>
+							<div><b><span class="naranja of_actual">DOP 765.250</span></b></div>
+						</div>
+						<div class="col-xs-5 of_subasta">
+							<sup class="naranja" style="font-weight: 600;">Tu oferta</sup>
+							<input type="text" class="mdn-input-text" >
+							<sup class="tooltip_introduce">Introduce DOP 765,500 o más</sup>
+						</div>
+						<div class="col-xs-3" style="text-align:center;">
+							<button class="mdn-btn" ng-click="pujar()">Ofertar</button>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+				</div>				
+			</div>
+			<div class="col-xs-6 ">
+				<div class="mdn-slick-imagen-grande">imagen</div>
+				<slick class="mdn-slick-publicacion" infinite="true" slides-to-show="4" slides-to-scroll="4" adaptiveHeight="true" style="overflow: hidden;" >
+					<div class="mdn-slick-publicacion-item">1</div>
+					<div class="mdn-slick-publicacion-item">2</div>
+					<div class="mdn-slick-publicacion-item">3</div>
+					<div class="mdn-slick-publicacion-item">4</div>
+					<div class="mdn-slick-publicacion-item">5</div>
+					<div class="mdn-slick-publicacion-item">6</div>
+				</slick>
+				<div class="publicidad">
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="mdn-detail-detailsContent">
+					<div>
+						<h3>ESPECIFICACIONES</h3>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Marca
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Marca}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Modelo
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Modelo}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Edición
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Edicion}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Motor
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Motor}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Inducción
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Induccion}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Transmisión
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Transmision}}</div>
+						<div style="clear:both;"></div>
+					</div>				
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Tracción
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Traccion}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Color
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Color}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Combustible
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Combustible}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Millaje
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Millaje}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Puertas
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Puertas}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Pasajeros
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Pasajeros}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="detail-especificacion">
+						<div class="title_espc col-xs-6">
+							Estado
+						</div>
+						<div class="col-xs-6 resp_espc">{{publicacion.Condicion}}</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div>
+						<br>
+						<h5 class="naranja title_feat"><b>FEATURES</b></h5>
+						<div class="col-xs-6" ng-repeat="key in [1,2,3,4,5]">
+							-{{key}}
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="mdn-details-dealler-content">
+				<div class="col-xs-6">
+					<div class="col-xs-12">
+						<h4 style="font-weight: 600; text-align:left; margin-top:0;">Dealer</h4>
+					</div>
+					<div class="col-xs-6">
+						<div class="mdn-details-dealler-photo" style="background-image: url('/images/noimage.png');">
+						</div>
+					</div>
+					<div class="col-xs-6 mdn-details-dealler-details">
+						<div>
+							<div class="dealer_information_title col-xs-6">
+								Nombre:
+							</div>
+							<div class="col-xs-6 dealer_information_resp"><b>AutoTren{{publicacion.Publicacion_Dealer.Nombre}}</b></div>
+							<div style="clear:both;"></div>
+						</div>
+						<div>
+							<div class="dealer_information_title col-xs-6">
+								Telefono:
+							</div>
+							<div class="col-xs-6 dealer_information_resp">111-111-1234{{publicacion.Publicacion_Dealer.Telefono}}</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div>
+							<div class="dealer_information_title col-xs-6">
+								WhatsApp:
+							</div>
+							<div class="col-xs-6 dealer_information_resp">111-111-1234{{publicacion.Publicacion_Dealer.WhatsApp}}</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div>
+							<div class="dealer_information_title col-xs-6">
+								Dirección:
+							</div>
+							<div class="col-xs-6 dealer_information_resp">Av. Bolivar 75{{publicacion.Publicacion_Dealer.Direccion}}</div>
+							<div style="clear:both;"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div>
+						<!--<google-map class="mdn-details-dealler-maps" disableZoom="true" latitude="37.77493" longitude="-122.41942"></google-map>-->
+						<div class="mdn-details-dealler-maps" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&amp;zoom=16&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc');">
+							<!--<img src="https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&amp;zoom=16&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc">-->
+						</div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+		<div class="col-xs-12">
+			<h3 style="margin-top: 80px; font-weight:normal; font-size:20px;">OFERTAS SIMILARES</h3>
+		</div>
+		<div style="clear:both"></div>		
+		<slick class="mdn-slick-similares" infinite="true" arrows="true" slides-to-show="5" slides-to-scroll="4" adaptiveHeight="true" style="overflow: hidden;" >
+			<div class="mdn-slick-publicacion-item">1</div>
+			<div class="mdn-slick-publicacion-item">2</div>
+			<div class="mdn-slick-publicacion-item">3</div>
+			<div class="mdn-slick-publicacion-item">4</div>
+			<div class="mdn-slick-publicacion-item">5</div>
+			<div class="mdn-slick-publicacion-item">6</div>
+		</slick>
+	</div>
+</div>

@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'font-mdn';
+  src: url('../font/font-mdn.eot?24159575');
+  src: url('../font/font-mdn.eot?24159575#iefix') format('embedded-opentype'),
+       url('../font/font-mdn.woff2?24159575') format('woff2'),
+       url('../font/font-mdn.woff?24159575') format('woff'),
+       url('../font/font-mdn.ttf?24159575') format('truetype'),
+       url('../font/font-mdn.svg?24159575#font-mdn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'font-mdn';
+    src: url('../font/font-mdn.svg?24159575#font-mdn') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "font-mdn";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-mdn_facebook_circle:before { content: '\e800'; } /* '' */
+.icon-mdn_twitter_circle:before { content: '\e801'; } /* '' */
+.icon-mdn_google_circle:before { content: '\e802'; } /* '' */
+.icon-mdn_rrs_circle:before { content: '\e803'; } /* '' */
+.icon-mdn_pencil:before { content: '\e804'; } /* '' */
+.icon-mdn_telefono:before { content: '\e805'; } /* '' */
+.icon-mdn_celular:before { content: '\e806'; } /* '' */
+.icon-mdn_sobre:before { content: '\e807'; } /* '' */
+.icon-mdn_laptop:before { content: '\e808'; } /* '' */
+.icon-mdn_ventas_circle:before { content: '\e809'; } /* '' */
+.icon-mdn_subastas_circle:before { content: '\e80a'; } /* '' */
+.icon-mdn_star:before { content: '\e80b'; } /* '' */
+.icon-mdn_tumb:before { content: '\e80c'; } /* '' */
+.icon-mdn_list:before { content: '\e80d'; } /* '' */
+.icon-mdn_puja:before { content: '\e80e'; } /* '' */
+.icon-mdn_currency_shape-circle:before { content: '\e80f'; } /* '' */
+.icon-mdn_facebook:before { content: '\e810'; } /* '' */
+.icon-mdn_twitter:before { content: '\e811'; } /* '' */
+.icon-mdn_gplus:before { content: '\e812'; } /* '' */
+.icon-mdn_rrs:before { content: '\e813'; } /* '' */
+.icon-mdn_user:before { content: '\e814'; } /* '' */
+.icon-mdn_search:before { content: '\e815'; } /* '' */
+.icon-mdn_currency_shape:before { content: '\e816'; } /* '' */
+.icon-mdn_plus-circle:before { content: '\e817'; } /* '' */
+.icon-mdn_calendar:before { content: '\e818'; } /* '' */
+.icon-mdn_currency:before { content: '\e819'; } /* '' */
+.icon-mdn_millaje:before { content: '\e81a'; } /* '' */
+.icon-mdn_combustible:before { content: '\e81b'; } /* '' */

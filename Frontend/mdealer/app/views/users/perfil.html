@@ -1,0 +1,231 @@
+<div class="dealer-main perfil">
+	<div>
+		<div class="dealer-dash" style="background-image: url('images/userimg_p1.jpg');">
+		</div>
+		<div class="dealer-info">			
+			<div class="container" style="max-width:1000px;">
+				<div class="col-xs-4">
+					<div class="espacio">
+						<div class="centrado">
+							<div class="dealer-perfil-photo" style="background-image: url('images/perfil.jpg');">
+								
+							</div>
+							<div class="dealer-names">
+								<h4>NOMBRE DEALER</h4>
+								<span>NOMBRE EMPRESA</span><br>
+								<button>Editar Perfil</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-8 general_data" style="border-left: 1px solid #6b6b6e;margin-top: .5em;min-height: 185px;">
+					<div class="col-xs-12" style="text-align: left;">
+						<div class="form-group">
+							<h3>DATOS GENERALES</h3>
+						</div>
+					</div>
+					<div class="col-xs-6" style="text-align: left; padding-left: 0;">
+						<div class="form-group">
+							<div class="col-xs-4 gris">Tel</div>
+							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4 gris">Cel</div>
+							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div style="clear:both;"></div>
+						</div>					
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<div class="col-xs-4 gris">Email</div>
+							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4 gris">Ciudad</div>
+							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4 gris">Website</div>
+							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div style="clear:both;"></div>
+						</div>
+					</div>
+				</div>			
+			</div>	
+		</div>
+		
+		<div class="dealer-menu">
+			<div class="container" style="max-width:1000px;">
+				<a href=""> <i class="icon-mdn_ventas_circle"></i> <span>Mis favoritos</span></a>
+				<div class="pujaOptions">
+	        <div class="btn-group">
+	          <button type="button" class="btn btn-default dropdown-toggle mdm-menu-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          	<i class="icon-mdn_subastas_circle"></i>
+	            <span class="tittleBtn">Mis Subastas</span> <span class="caret"></span>
+	          </button>
+	          <ul class="dropdown-menu dropdown-menu-left">
+	            <li><a href="#">Pendientes</a></li>
+	            <li><a href="#">Activos</a></li>
+	            <li><a href="#">Ganados</a></li>
+	          </ul>
+	        </div>
+	      </div>	
+			</div>			
+		</div>		
+	</div>
+</div>
+<div class="publicaciones-index">
+	<div class="container" style="max-width: 1000px;">
+		<div class="col-xs-12">
+			<h4 class="tittle">MIS SUBASTAS</h4>
+			<div class="form-group">
+				<select name="" id="" class="form-control select_md" style="max-width:200px; float:left; margin-right:10px;">
+					<option value="">Precio (Mayor a Menor)</option>
+				</select>
+				<button ng-click="changueClass(false)" class="button-menu-option-view">
+					<i class="icon-mdn_tumb" aria-hidden="true"></i></button>
+				<button ng-click="changueClass(true)" class="button-menu-option-view">
+					<i class="icon-mdn_list" aria-hidden="true"></i></button>
+				<div style="float:right;" class="mdn-paginador-resultados">
+					<span ng-repeat="key in [1,2,3,4,5,6]">{{key}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="results" ng-repeat="key in [1,2,3,4]">
+				<div class="col-xs-6 content">
+					<div class="result superada">
+						<div class="image-background"></div>
+						<div class="publicacion_container">
+						<div class="tittle-result">
+							<div class="col-xs-9" style="text-align: left;">
+								<h4><b>HYUNDAI TUCSON</b></h4>
+								<span>Marca / Modelo / Trim / Descripción básica</span>	
+							</div>
+							<div class="col-xs-3 iconStar">
+								<div class="oferta_superada"></div>                                    <!-- QUITAR CUANDO NO SE HA SUPERADO LA OFERTA -->
+								<span class="icon-mdn_star"></span>
+							</div>
+							<div style="clear:both;"></div>							
+						</div>
+						<div class="options">
+							<div class="col-xs-3" style="padding:0; padding-right:.3em;">
+								<span>
+									<i class="icon-mdn_calendar"></i>
+									<span>2003</span>
+								</span>
+							</div>
+							<div class="col-xs-3" style="padding:0; padding-right:.3em;">
+								<span>
+									<i class="icon-mdn_millaje"></i>
+									<span>40 Millas</span>
+								</span>
+							</div>
+							<div class="col-xs-3" style="padding:0; padding-right:.3em;">
+								<span>
+									<i class="icon-mdn_combustible"></i>
+									<span>Diesel</span>
+								</span>
+							</div>
+							<div class="col-xs-3" style="padding:0; padding-right:.3em;">
+								<span>
+									<i class="icon-mdn_ventas_circle" style="color:black"></i>
+									<span>Compra</span>
+								</span>
+							</div>
+						</div>
+						<div class="col-xs-12 subasta_container">
+							<h4>SUBASTA</h4>
+							<span>[4 ofertas]</span><span class="naranja"> Restan: 4 días</span>
+						</div>
+						<div class="col-xs-6 precios">
+							<div class="price-dealerA">
+								<span>Oferta actual: </span><h5>DOP 515.120</h5>
+							</div>
+							<div class="price-dealerB">
+								<span>Tu oferta: </span><h5>DOP 515.120</h5>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="actions">
+								<button class="ActionBtn">DETALLES</button>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<div class="results" ng-repeat="key in [1,2,3,4]">
+				<div class="col-xs-12 content">
+					<div class="result superada" style="padding-bottom: 0;">
+						<div class="col-xs-4 image-background"></div>
+						<div class="col-xs-8 desc_cont">
+							<div class="tittle-result">
+								<div class="col-xs-9" style="text-align:left;">
+									<h4><b>HYUNDAI TUCSON</b></h4>
+									<span>Marca / Modelo / Trim / Descripción básica</span>	
+								</div>
+								<div class="col-xs-3 iconStar">
+								<div class="oferta_superada"></div>                                    <!-- QUITAR CUANDO NO SE HA SUPERADO LA OFERTA -->
+									<span class="icon-mdn_star"></span>
+								</div>
+								<div style="clear:both;"></div>							
+							</div>
+							<div style="clear:both;"></div>
+							<div class="col-xs-5" style="text-align:left;">
+								<h4 style="font-size:14px;"><b>SUBASTA</b></h4>
+								<span class="of">[4 ofertas]</span><span class="naranja of"> Restan: 4 dias</span>
+								<div class="precios">
+									<div class="price-dealerA">
+										<span>Oferta actual: </span><h5>DOP 515.120</h5>
+									</div>
+									<div class="price-dealerB">
+										<span>Tu oferta: </span><h5>DOP 515.120</h5>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-4" style="padding:0;    font-size: 12px;	">
+								<div class="options" style="margin-top: 57px;">
+									<div class="col-xs-6" style="padding:0;">
+										<span>
+											<i class="icon-mdn_calendar"></i>
+											<span>2003</span>
+										</span>
+									</div>
+									<div class="col-xs-6" style="padding:0;">
+										<span>
+											<i class="icon-mdn_millaje"></i>
+											<span>40 Millas</span>
+										</span>
+									</div>
+									<div class="col-xs-6" style="padding:0;">
+										<span>
+											<i class="icon-mdn_combustible"></i>
+											<span>Diesel</span>
+										</span>
+									</div>
+									<div class="col-xs-6" style="padding:0;">
+										<span>
+											<i class="icon-mdn_ventas_circle"></i>
+											<span>Compra</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-3" style="margin-top: 57px;">
+								<div class="actions">
+									<button class="ActionBtn">DETALLES</button>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>

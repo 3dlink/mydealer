@@ -1,0 +1,760 @@
+/*colores*/
+naranja= #F69A2B;
+verdeClaro= #229F8F;
+verdeOscuro= #2B9880;
+grisOscuro= #3A393E;
+grisClaro= #B9BABC;
+
+body
+	background-color  #F8F9FB
+	font-family: 'Open Sans', sans-serif;
+.slick-dots 
+	height: 40px;
+	position: absolute;
+	left: -102px;
+	width: 243px;
+	top: 50%;
+	transform: translateY(-50%)rotateZ(90deg);
+	li
+		background-color: rgba(0,0,0,.3);
+		border-radius 50%
+		border 1px solid white
+		button
+			opacity 0
+	.slick-active
+		background-color: naranja;
+
+.mdn-primary-content
+	margin-top 83px
+	min-width 1000px
+.mdn-header
+	min-height 80px
+	min-width 1000px
+	background-color rgba(grisOscuro,1)
+	padding: .5em;
+	position fixed
+	top 0
+	z-index 3000
+	.mdn-header-options-search
+		margin-top .9em
+		.mdn-glyp
+			background white
+			border-radius 12px 0 0 12px
+			border-right none
+			border 1px solid grisClaro
+			color white
+			size 27px
+			text-align center
+			width 40px
+			.mdn-ico
+				color grisClaro
+				font-size 30px				
+		.input-search
+			border-left none
+			margin-left -1px
+			min-height: 44px;
+		.button-search
+			border-radius 0 14px 14px 0
+			min-width 78px
+			min-height: 44px;
+			z-index 2
+			margin-left -2px
+			background-color naranja
+			border 1px solid naranja
+			color white
+			font-weight bold
+		.search-fast-result
+			position: absolute;
+			display: block;
+			width: 100%;
+			min-height: 45px;
+			background-color: white;
+			top: 34px;
+			left: 0;
+			z-index: 141;
+			border: 1px solid grisClaro;
+			border-radius: 15px;
+			padding .5em
+			.tittleSection
+				display: block;
+				border-bottom: 1px solid grisClaro;
+				color: #FBA639;
+				border-radius: 0;
+				text-align: center;
+			a
+				display: block;
+				padding: .5em;
+				color: black;
+				border-bottom: 1px solid rgba(204, 204, 204, 0.67);
+	.mdm-header-option-user
+		text-align center
+		padding: 1em;
+		.mdn-header-notifications
+			display inline-block
+			width 30px
+			height 30px
+			color white
+			background-color naranja
+			vertical-align middle
+			text-align center
+			border-radius 50%
+			span
+				line-height 30px
+		.mdm-header-option-user-options
+			display inline-block
+			.mdm-menu-action
+				background-color rgba(0,0,0,0);
+				border none;
+				color white;
+		.mdm-header-option-user-perfil
+			display inline-block
+			width 40px
+			height 40px
+			text-align center
+			vertical-align middle
+			background-color white
+			color rgba(58, 57, 62, 0.73)
+			border-radius 50%
+			font-size 24px
+			div
+				line-height 36px
+.mdn-footer
+	background-color naranja
+	min-height 140px	
+	min-width 1000px
+	>div
+		text-align center
+		padding-top 2.5em
+		p
+			text-align left
+			max-width: 395px;
+			display: inline-block;
+			color: white;
+		button
+			color: white;
+			border-radius 15px
+			border: 1px solid white;
+			background-color: rgba(0,0,0,0);
+			font-size: 18px;
+			padding: 0.5em 1em;
+			margin-right .5em
+		span
+			span
+				color: white;
+				font-size: 18px;
+				margin-right .5em
+.mdn-main
+	overflow hidden
+	.mdn-carrousel-p
+		background-color black
+		width: 100%;
+		min-height: 750px;
+		.mdm-slider
+			min-height: 750px;
+			background-size cover
+			background-position center
+			background-repeat no-repeat
+			position relative
+			color white
+			opacity 1
+			.slider-content
+				max-width: 700px;
+				color: white;
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				top: 40%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				.slider-tittle
+					h4
+						font-size: 30px;
+					h5
+						color verdeOscuro
+						font-size: 20px;
+						span
+							display inline-block
+							background-color naranja
+							width 20%
+							border-radius 10px
+							height 6px
+				.slider-options
+					>div
+						cursor pointer
+					i
+						font-size: 90px;
+					h5
+						margin: 0;
+						font-size: 20px;
+						span
+							display inline-block
+							background-color naranja
+							width 20%
+							border-radius 10px
+							height 6px
+	.mdn-gallery-view
+		margin-top 4em
+		border-radius 15px;
+		overflow hidden
+		.mdn-gallery
+			margin-top 1px
+			min-height 200px
+			.mdn-gallery-content
+				background-color grisClaro
+				background-repeat: no-repeat;
+				bottom 0px
+				height 100%
+				left 0
+				position absolute
+				right 1px
+				top 0
+				background-position: center;
+				.mdn-gallery-info
+					*background-color backgroundColor1
+					bottom: 0
+					color white
+					cursor pointer
+					height: 30%
+					left: 0
+					position: absolute
+					right: 1px
+					.mdn-gallery-info-content
+						color white				
+						position: absolute
+						top 50%
+						left: 50%
+						text-align center
+						transform translate(-50%,-50%)
+						.mdn-gallery-info-icon
+							font-size: 25px;
+							opacity: .6;
+							display none
+					&:hover
+						height: 100%
+						.mdn-gallery-info-icon
+							display block
+	.mdn-gallery-view-paginator
+		margin-top 2.3em
+		margin-bottom 2.3em
+		text-align center
+		.next
+			display inline-block
+			width 30px
+			color grisClaro
+	.mdn-publicidad
+		background-color: grisClaro
+		margin-bottom: 2em
+		text-align center
+		img
+			width: 100%;
+	.subasta
+		background-color black
+		.mdn-tittle-green
+			min-height 45px;
+			background-color #229F8F
+			color white
+			padding 1em
+			h4
+				text-align center
+				margin 0
+		.mdn-big-pic
+			width: 100%
+			min-height: 600px
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;			
+			position relative
+			.big-pic-content
+				position absolute
+				max-width 700px
+				width 100%
+				top 50%
+				left 50%
+				transform translate(-50%,-50%)
+				color white
+				text-align center
+				.tittle
+					h4
+						font-size 30px
+				h5
+					font-size 18px
+				i
+					font-size: 100px;
+				button
+					width: 200px;
+					height: 50px;
+					background-color: rgba(0,0,0,0);
+					border: 1px solid white;
+					border-radius: 15px;
+					margin-top: 1.5em;
+.publicaciones-index
+	.tittle
+		font-size: 30px;
+		margin-top: 1em;
+	.button-menu-option-view
+		background-color: #fba639;
+		border: none;
+		font-size: 24px;
+		color: #fff;
+		padding: 0;
+	.mdn-paginador-resultados
+		padding-top 1em
+		span
+			display: inline-block;
+			width: 30px;
+			text-align: center;
+			height: 20px;
+			border-right: 1px solid #CDCDCD;
+			margin-right: .3em;
+			cursor: pointer;
+	.menu
+		background-color white
+		border 1px solid grisClaro
+		padding 1em
+		margin-top .5em
+		input , select
+			border-color naranja
+		h3
+			color naranja
+		.type_sale
+			h3
+				text-align left
+			span
+				font-size: 45px;
+				color: grisClaro;
+				width: 40px;
+				display: inline-block;
+				text-align: left;
+				&:hover
+					color: naranja
+				&:active
+					color: naranja
+				&:focus
+					color: naranja	
+	.publicidad
+		padding-top 1em
+		padding-bottom 1em
+		img
+			width 100%
+	.results
+		margin-top .5em
+		.content
+			padding: 0;
+			.result
+				background-color: white;
+				padding-bottom: 1em;
+				overflow: hidden;
+				border: 1px solid grisClaro;
+				border-radius: 5px;
+				text-align: center;
+				margin-right .7em
+				margin-bottom 1em
+				.image-background
+					min-height: 240px;
+					background-color: grey;
+				.tittle-result
+					>h4
+						font-size 20px
+						margin .5em 0px 0px 0px
+					>span
+						color grisClaro
+						font-size 12px
+					.iconStar
+						text-align right
+						span
+							font-size 40px
+							color verdeClaro
+				.options
+					span
+						i
+							font-size 30px
+							vertical-align: middle;
+				.price
+					h5
+						color naranja
+						font-weight: bold;
+						font-size: 16px;
+						text-align left
+						span
+							font-size 15px
+					span
+						font-size: 30px;
+						color verdeClaro
+				.price-dealerA
+					h5
+						color naranja
+						font-weight: bold;
+						font-size: 16px;
+						text-align left
+						span
+							font-size 12px
+							color grisClaro
+				.price-dealerB
+					background-color: #ECECEC;
+					padding: 4px;
+					h5
+						color naranja
+						font-weight: bold;
+						font-size: 16px;
+						text-align left
+						MARGIN 0
+						span
+							font-size 12px
+				.actions
+					button
+						background: naranja;
+						border: none;
+						max-width: 176px;
+						width: 100%;
+						height: 35px;
+						border-radius: 6px;
+						color: white;
+						font-weight: bold;
+					.ActionBtn
+						background: naranja;
+						border: none;
+						max-width: 176px;
+						width: 100%;
+						height: 62px;
+						border-radius: 6px;
+						color: white;
+						font-weight: bold;
+.publicacion-detail
+	.tittle-detail
+		padding-top 1.5em
+	.mdn-detail-first-params
+		display inline-block
+		i
+			font-size 36px
+			vertical-align middle
+	.detail-fast
+		h4
+			margin-top: .5em;
+			font-size 20px
+			i
+				div
+					display none
+					position: absolute;
+					min-width: 474px;
+					min-height: 204px;
+					z-index: 100;
+					left: -62px;
+					background-size: cover;
+					background-repeat: no-repeat;
+					padding: 4.5em 1em 1em 1em;
+					font-size: 15px;
+					line-height: 27px;
+					font-family: 'Open Sans', sans-serif;
+				&:hover
+					div
+						display block
+		.naranja
+			color naranja
+			font-weight bold
+		.favorito
+			display: inline-block;
+			border-left 1px solid grisClaro
+			border-right 1px solid grisClaro
+			vertical-align middle
+			margin-right .5em
+			height: 39px;
+			i
+				font-size 40px
+				color grisClaro
+				line-height: 1px;
+		.mdn-btn-naranja
+			border: none;
+			padding: .6em 1em;
+			max-width: 146px;
+			border-radius: 10px;
+			color: white;
+			font-weight: bold;
+			width: 100%;
+			background-color naranja
+	.subasta
+		padding: 1em;
+		border: 1px solid naranja;
+		margin-top: 1em;
+		background-color white
+		h3
+			margin: 0;
+			margin-bottom: .5em;
+		.mdn-input-text
+			height 35px
+			border 1px solid naranja
+	.mdn-slick-imagen-grande
+		height 390px
+		background-color grisClaro
+		border-radius 10px
+		margin-top 2.5em
+	.mdn-detail-detailsContent
+		margin-top 2.5em
+		border 1px solid grisClaro
+		padding 1em
+		background-color white
+		h3
+			margin-top .5em
+		.detail-espesification
+			border-bottom 1px solid grisClaro
+			padding .6em 0
+	.mdn-slick-publicacion
+		margin-top .5em
+		margin-bottom 1em
+		.mdn-slick-publicacion-item
+			min-height: 100px;
+			border: 1px solid black;
+			margin: .1em;
+			border-radius 10px
+	.publicidad
+		background-color #cdcdcd
+		min-height: 168px;
+	.mdn-details-dealler-content
+		margin-top 1em
+		border: 1px solid #B4B3B5;
+		padding-top .5em
+		padding-bottom .5em
+		text-align center
+		background-color white
+		.mdn-details-dealler-photo
+			width 150px
+			height 150px
+			border-radius 50%
+			background-color #cdcdcd
+			display inline-block
+			background-repeat: no-repeat;
+			background-position: center
+		.mdn-details-dealler-details
+			text-align left
+			>div
+				padding-top: 0.5em;
+				padding-bottom: 0.5em;
+		.mdn-details-dealler-maps
+			width 100%
+			height 190px
+			background-position: center;
+			background-size: cover;
+			border-radius: 10px;
+	.mdn-slick-similares
+		min-height 150px
+		.mdn-slick-publicacion-item
+			min-height 150px
+			border: 1px solid rgb(180, 179, 181);
+			padding: 0.3em;
+			margin: 0.2em .7em;
+			border-radius 10px
+.perfil
+	margin-top 2em
+	margin-bottom 2em
+	.perfil-content
+		padding 2em
+		border 1px solid grisClaro
+		border-radius 10px
+		background-color white
+		.foto-content
+			text-align center
+			.foto-fondo
+				background-color grisClaro
+				min-height 200px
+				border-radius 10px
+				margin-bottom .5em
+			.foto-perfil
+				background-color grisClaro
+				display inline-block
+				height 200px
+				width 200px
+				border-radius 50%
+				margin-bottom .5em
+.dealer-main
+	.dealer-dash
+		min-height: 250px;
+	.dealer-info
+		background-color: #3A393E;
+		padding: 1em;
+		color: white;
+		text-align center		
+		.espacio
+			min-height 200px
+			width 100%
+			.centrado
+				position: absolute;
+				top: -107px;
+				left: 50%;
+				transform: translateX(-50%);
+				.dealer-perfil-photo
+					width 170px
+					height 170px
+					background-color grisClaro
+					border-radius 50%
+					display inline-block
+					border 4px solid white
+					background-size: cover;
+				.dealer-names
+					h4
+						margin-bottom .1em
+					span
+						margin-bottom .5em
+						display inline-block
+					button
+						background-color rgba(0,0,0,0)
+						border 1px solid white
+						padding .5em 1em
+			
+	.dealer-menu
+		background-color: #F69A2B;		
+		.container
+			>a
+				color white
+				display: inline-block;
+				vertical-align: middle;
+				text-decoration: none;
+				i
+					font-size 40px
+					display: inline-block;
+					vertical-align: middle;
+				span
+					display: inline-block;
+					vertical-align: middle;
+			.pujaOptions
+				display: inline-block;
+				margin-left: 1em;
+				button
+					background-color: rgba(0,0,0,0);
+					border: none;
+					box-shadow: none;
+					color: white;
+					padding 0
+					i
+						font-size 40px
+						display inline-block
+						vertical-align middle
+					.tittleBtn
+						display inline-block
+						vertical-align middle
+				.dropdown-menu
+					border: 1px solid #F69A2B !important;
+					li
+						border-bottom 1px solid naranja
+						&:last-child
+							border-bottom none
+						a
+							border: 2px solid white;
+							padding-top: .5em;
+							padding-bottom: .5em;
+							color naranja
+							&:hover
+								color: white;
+								background: naranja;
+.contact
+	.maps
+		min-height 490px
+		background-color grisClaro
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	.contact-tittle
+		text-align center
+		h2
+			font-size 45px
+			margin-top .2em
+		p
+			font-size 20px
+	.contatUs
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: right;
+		padding 1em
+		padding-top 2em
+		color white
+		.contact-form
+			input, select
+				margin-top .5em
+				border 1px solid white
+				background-color rgba(0,0,0,0)
+				color white
+				border-radius 10px
+				height 45px
+			option
+				color black
+			textarea
+				margin-top .5em
+				border 1px solid rgba(0,0,0,.5)
+				background-color rgba(255,255,255,.5)
+				color white
+				padding 1em
+				border-radius 15px
+		.direction
+			p
+				font-size 16px
+				padding-left 1.5em
+		.social-m
+			i
+				font-size: 45px;
+				zoom: 151%;		
+.gris
+	color grisClaro
+.naranja
+	color naranja
+.mdn-btn
+	border: 2px solid naranja
+	padding: 0.6em 1em;
+	max-width: 146px;
+	border-radius: 10px;
+	color: #fff;
+	font-weight: bold;
+	width: 100%;
+	background-color: #f69a2b;
+.mdn-btn-cancel
+	border: 2px solid naranja
+	padding: 0.6em 1em;
+	max-width: 146px;
+	border-radius: 10px;
+	color: naranja
+	font-weight: bold;
+	width: 100%;
+	background-color: white
+.imput-edit
+	position: static;
+	input
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+		min-height: 44px;
+		vertical-align: middle;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width: 100%;
+		padding-right: 43px;
+		padding-left: 42px;
+		box-sizing: border-box;
+	.mdn-icon-left
+		display: inline-block;
+		vertical-align: middle;
+		border: 1px solid #ccc;
+		border-right: none;
+		border-radius: 5px 0 0 5px;
+		float: left;
+		position: absolute;
+		i
+			color: #F69A2B;
+			font-size: 30px;
+	.mdn-icon-right
+		display: inline-block;
+		vertical-align: middle;
+		border: 1px solid #ccc;
+		border-left: none;
+		border-radius: 0 5px 5px 0;
+		position: absolute;
+		top: 0;
+		right: 15px;
+		i
+			color: #969696;
+			font-size: 30px;
+.mdn-button-edit
+	background-color: #36353A;
+	border: none;
+	color: white;
+	padding: .5em 1em;
+	border-radius: 7px;
+	margin-top: 1em;
+
+
