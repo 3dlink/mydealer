@@ -1,3 +1,4 @@
+<div ng-init="initIndex()"></div>
 <div class="publicaciones-index listado_publicaciones">
 	<div class="menu_left menu">
 				<div>
@@ -26,8 +27,8 @@
 				<div>
 					<h3><span class="icon-mdn_calendar" style="font-size: 30px;"></span>Año</h3>
 					<div class="form-group">
-						<select type="text" class="form-control select_md">
-							<option value="">2012</option>
+						<select type="text" class="form-control">
+							<option value="{{x}}" ng-repeat="x in yearsArray">{{x}}</option>
 						</select>
 					</div>
 					
@@ -35,7 +36,9 @@
 				<div>
 					<h3><span class="icon-mdn_currency" style="font-size: 30px;"></span> Precio</h3>
 					<div class="form-group">
-						<input type="number" class="form-control select_md">
+						<select type="text" class="form-control">
+							<option value="{{price.value}}" ng-repeat="price in pricesArray track by $index">{{price.tittle}}</option>
+						</select>
 					</div>
 					
 				</div>
@@ -72,37 +75,41 @@
 				</div>
 			</div>
 			<div class="grid_publicaciones">
-				<div class="results" ng-repeat="key in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+				<div class="results" ng-repeat="publicacion in publicaciones">
 					<div class="col-xs-4 content">
 						<div class="result">
-							<div class="image-background"></div>
+							<div class="image-background">
+								<slick infinite="true" init-onload=true data="publicacion.Fotos" slides-to-show="1" slides-to-scroll="1" adaptiveHeight="true" style=" overflow: hidden;" >
+									<div  ng-repeat="(key, foto) in publicacion.Fotos" style="border-radius: 10px 10px 0 0; height: 240px; background-image:url('{{foto.Url}}'); background-position:center; background-size:cover;" ng-click="photoSelect(foto.Url)"></div>
+								</slick>
+							</div>
 							<div class="tittle-result">
-								<h4><b>HYUNDAI TUCSON</b></h4>
+								<h4><b>{{publicacion.Marca}} {{publicacion.Modelo}}</b></h4>
 								<span style="color:black;">Marca / Modelo / Trim / Descripción básica</span>
 							</div>
 							<div class="options">
 								<div class="col-xs-5" style="padding:0; padding-right:.3em;">
 									<span>
 										<i class="icon-mdn_calendar"></i>
-										<span>2003</span>
+										<span>{{publicacion['Año']}}</span>
 									</span>
 								</div>
 								<div class="col-xs-7" style="padding:0; padding-right:.3em;">
 									<span>
 										<i class="icon-mdn_millaje"></i>
-										<span>40 Millas</span>
+										<span>{{publicacion.Millaje}} Millas</span>
 									</span>
 								</div>
 								<div class="col-xs-5" style="padding:0; padding-right:.3em;">
 									<span>
 										<i class="icon-mdn_combustible"></i>
-										<span>Diesel</span>
+										<span>{{publicacion.Combustible}}</span>
 									</span>
 								</div>
 								<div class="col-xs-7" style="padding:0; padding-right:.3em;">
 									<span>
 										<i style="color:black;" class="icon-mdn_subastas_circle"></i>
-										<span>Subasta</span>
+										<span>{{publicacion.Tipo}}</span>
 									</span>
 								</div>
 							</div>
@@ -111,7 +118,7 @@
 								<div class="col-xs-6" style="text-align: center;"><span class="icon-mdn_star"></span></div>
 							</div>
 							<div class="actions">
-								<button>DETALLES</button>
+								<a href="#/publicacion/{{publicacion.Id}}" >DETALLES</a>
 							</div>
 						</div>
 					</div>

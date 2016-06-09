@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'mdnService',
     'slick'
   ])
   .config(function ($locationProvider, $stateProvider,$urlRouterProvider) {
@@ -28,7 +29,7 @@ angular
         controllerAs: 'main'
       })
       .state('publicaciones', {
-        url:'/publicaciones',
+        url:'/publicaciones/:parameters?',
         templateUrl: 'views/publicaciones/index.html',
         controller: 'PublicacionesCtrl',
         controllerAs: 'publicaciones'
@@ -42,24 +43,30 @@ angular
       .state('perfil', {
         url:'/perfil',
         templateUrl: 'views/users/perfil.html',
-        controller: 'PublicacionesCtrl',
-        controllerAs: 'publicaciones'
+        controller: 'UsuariosCtrl',
+        controllerAs: 'usuarios'
       })
       .state('edit', {
         url:'/edit/:id',
         templateUrl: 'views/users/edit.html',
-        controller: 'PublicacionesCtrl',
-        controllerAs: 'publicaciones'
+        controller: 'UsuariosCtrl',
+        controllerAs: 'usuarios'
       })
       .state('dealer', {
         url:'/dealer/:id',
         templateUrl: 'views/dealers/main.html',
-        controller: 'PublicacionesCtrl',
-        controllerAs: 'publicaciones'
+        controller: 'DealersCtrl',
+        controllerAs: 'dealers'
       })
       .state('contact', {
         url:'/contact',
         templateUrl: 'views/users/contact.html',
+        controller: 'PublicacionesCtrl',
+        controllerAs: 'publicaciones'
+      })
+      .state('politica', {
+        url:'/politica',
+        templateUrl: 'views/users/politica.html',
         controller: 'PublicacionesCtrl',
         controllerAs: 'publicaciones'
       });

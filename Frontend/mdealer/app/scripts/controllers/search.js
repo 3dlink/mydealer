@@ -2,30 +2,21 @@
 
 /**
  * @ngdoc function
- * @name myDealerNetworkApp.controller:MainCtrl
+ * @name mdnFrontApp.controller:AboutCtrl
  * @description
- * # MainCtrl
- * Controller of the myDealerNetworkApp
+ * # AboutCtrl
+ * Controller of the mdnFrontApp
  */
 angular.module('myDealerNetworkApp')
-  .controller('MainCtrl', function ($scope,$timeout,publicaciones) {
+  .controller('searchController', function ($scope,$timeout,publicaciones) {
   	$scope.searchInput='';
   	$scope.searchResult=[];
     $scope.busquedas=[];
-    $scope.initHome=function(){
-      publicaciones.getLastInsert()
-      .$promise.then(function (data) {
-      	console.log(data);
-      	$scope.publicacionesHome=data.publicacion;
-      });
-    }
-
     $scope.search=function(){
     	console.log($scope.searchInput);
     }
     $scope.searchBY=function(){
       var busqueda={};
-      console.log($scope.searchInput);
       busqueda.search=$scope.searchInput;
     	if($scope.searchInput.length>=2){
     		publicaciones.search(busqueda)

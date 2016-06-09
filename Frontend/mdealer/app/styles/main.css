@@ -164,7 +164,7 @@ input:focus {
   width: 100%;
   min-height: 45px;
   background-color: #fff;
-  top: 34px;
+  top: 43px;
   left: 0;
   z-index: 141;
   border: 1px solid #b9babc;
@@ -248,7 +248,7 @@ input:focus {
   display: inline-block;
   color: #fff;
 }
-.mdn-footer >div button {
+.mdn-footer >div a {
   color: #fff;
   border-radius: 5px;
   border: 1px solid #fff;
@@ -256,6 +256,7 @@ input:focus {
   font-size: 24px;
   padding: 0.5em 1em;
   margin-right: 0.5em;
+  text-decoration: none;
 }
 .mdn-footer >div span span {
   color: #fff;
@@ -325,6 +326,9 @@ input:focus {
 }
 .mdn-main .mdn-carrousel-p .mdm-slider .slider-content .slider-options >div {
   cursor: pointer;
+}
+.mdn-main .mdn-carrousel-p .mdm-slider .slider-content .slider-options  {
+  color: white;
 }
 .mdn-main .mdn-carrousel-p .mdm-slider .slider-content .slider-options i {
   font-size: 90px;
@@ -711,6 +715,21 @@ input:focus {
   height: 35px;
   border-radius: 6px;
   color: #fff;
+  font-weight: 600;
+}
+.publicaciones-index .results .content .result .actions a {
+  background: #f69a2b;
+  display: inline-block;
+  border: none;
+  max-width: 176px;
+  width: 100%;
+  height: 35px;
+  border-radius: 6px;
+  color: #fff;
+  vertical-align: middle;
+  padding-top: .5em;
+  text-decoration: none;
+  cursor: pointer;
   font-weight: 600;
 }
 .publicaciones-index .results .content .result .actions .ActionBtn {

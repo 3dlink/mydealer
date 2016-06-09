@@ -1,16 +1,16 @@
-<div ng-init="initPublicacion()"></div>
+<div ng-init="initDetail()"></div>
 <div class="publicacion-detail">
 	<div class="container" style="max-width: 1000px;">
 		<div class="col-xs-12">
 			<div class="col-xs-12 tittle-detail" style="padding-left: 0;">
-				<h1>{{publicacion.Modelo}}HYUNDAI TUCSON</h1>
+				<h1>{{publicacion.Modelo}}</h1>
 				<hr>
-				<h1>AUTO TREN</h1>
+				<h1>{{publicacion.Publicacion_Dealer.Nombre}}</h1>
 			</div>		
 			<div class="col-xs-12" style="padding-left: 0;margin-left: -12px;    margin-bottom: 25px;">
 				<div class="mdn-detail-first-params">
 					<i class="icon-mdn_calendar"></i>
-					<span>{{publicacion['Año']}}Año</span>
+					<span>{{publicacion['Año']}}</span>
 				</div>
 				<div class="mdn-detail-first-params">
 					<i class="icon-mdn_millaje"></i>
@@ -18,70 +18,65 @@
 				</div>
 				<div class="mdn-detail-first-params">
 					<i class="icon-mdn_combustible"></i>
-					<span>{{publicacion.Combustible}}Combustible</span>
+					<span>{{publicacion.Combustible}}</span>
 				</div>
 				<div class="mdn-detail-first-params">
 					<!-- <i class="icon-mdn_subastas_circle" style="color:black;"></i> -->
-					<i class="icon-mdn_ventas_circle" style="color:black;"></i>
-					<span ng-if="publicacion.type">Compra</span>
-					<span ng-if="!publicacion.type">Subasta</span>
+					<i class="icon-mdn_ventas_circle" style="color:black;" ng-show="publicacion.Tipo=='Subasta'"></i>
+					<i class="icon-mdn_currency_shape-circle" style="color:black;" ng-show="publicacion.Tipo=='Venta'"></i>
+					<span >{{publicacion.Tipo}}</span>
 				</div>
 			</div>
 			<div class="detail-fast">
-				<div class="col-xs-4" style="padding-left: 0;">
-					<h4 class="naranja">PRECIO: DOP {{publicacion.PrecioEnDOP|currency}} 850,000.00 </h4>
+				<div class="col-xs-5" style="padding-left: 0;">
+					<h4 class="naranja">PRECIO: DOP {{publicacion.PrecioEnDOP|currency}}</h4>
 				</div>
 				<div class="col-xs-4">
-					<h4>Cuotas: DOP 18,550.00 
+					<h4>Cuotas: {{cuota|currency}}
 					<i class="glyphicon glyphicon-info-sign" >
 						<div  class="disclaimer" style="background-image: url('images/disclaimer.png');">
 							Basado en un préstamo de 60 meses con un inicial <br>
-							de              %, a una tasa de referencia de             % anual. La cuota<br>
+							de {{porcentajeMensual}}%, a una tasa de referencia de {{tasaSys}}% anual. La cuota<br>
 							mostrada no es garantizada, sólo un estimado. No incluye seguro.
 						</div>
 					</i>
 					</h4> 
 				</div>
-				<div class="col-xs-4" style="text-align:right; padding-right: 0;">
+				<div class="col-xs-3" style="text-align:right; padding-right: 0;">
 					<span class="favorito">
 						<i class="icon-mdn_star"></i>
 					</span>
-					<button class="mdn-btn-naranja">PERFIL DEALER</button>
+					<a href="#/dealer/{{publicacion.Publicacion_Dealer.Id}}" class="mdn-btn-naranja">PERFIL DEALER</a>
 				</div>
 			</div>
 		</div>
 		<div style="clear:both"></div>
 		<div>
-			<div class="col-xs-12">
-				<div class="col-xs-12 subasta" ng-if="!publicacion.type">				
+			<div class="col-xs-12" ng-show="publicacion.Tipo=='Subasta'">
+				<div class="col-xs-12 subasta">				
 					<h3>SUBASTA</h3>
 					<div>
-						<div class="col-xs-3 of">[4 ofertas] | <span class="naranja">Restan: 4 dias</span></div>
+						<div class="col-xs-3 of">[{{publicacion.Pujas.length}} ofertas] | <span class="naranja">Restan: {{diasRestantes}} dias</span></div>
 						<div class="col-xs-2">
 							<div style="text-align:center;font-size:13px;">Oferta actual:</div>
-							<div><b><span class="naranja of_actual">DOP 765.250</span></b></div>
+							<div><b><span class="naranja of_actual">DOP {{ofertActual|currency}}</span></b></div>
 						</div>
 						<div class="col-xs-5 of_subasta">
 							<sup class="naranja" style="font-weight: 600;">Tu oferta</sup>
-							<input type="text" class="mdn-input-text" >
-							<sup class="tooltip_introduce">Introduce DOP 765,500 o más</sup>
+							<input type="number" class="mdn-input-text" min="{{montoMin}}" ng-model="TuOferta" value="" placeholder="{{$scope.montoMin}}">
+							<sup class="tooltip_introduce">Introduce DOP {{montoMin| currency}} o más</sup>
 						</div>
 						<div class="col-xs-3" style="text-align:center;">
-							<button class="mdn-btn" ng-click="pujar()">Ofertar</button>
+							<button class="mdn-btn" ng-click="pujar(TuOferta)">Ofertar</button>
 						</div>
 						<div style="clear:both;"></div>
 					</div>
 				</div>				
 			</div>
 			<div class="col-xs-6 ">
-				<div class="mdn-slick-imagen-grande">imagen</div>
-				<slick class="mdn-slick-publicacion" infinite="true" slides-to-show="4" slides-to-scroll="4" adaptiveHeight="true" style="overflow: hidden;" >
-					<div class="mdn-slick-publicacion-item">1</div>
-					<div class="mdn-slick-publicacion-item">2</div>
-					<div class="mdn-slick-publicacion-item">3</div>
-					<div class="mdn-slick-publicacion-item">4</div>
-					<div class="mdn-slick-publicacion-item">5</div>
-					<div class="mdn-slick-publicacion-item">6</div>
+				<div class="mdn-slick-imagen-grande" style="background-image:url('{{photoSelected}}'); background-position:center; background-size:cover;"></div>
+				<slick class="mdn-slick-publicacion" infinite="true" init-onload=true data="publicacion.Fotos" slides-to-show="4" slides-to-scroll="4" adaptiveHeight="true" style="overflow: hidden;" >
+					<div class="mdn-slick-publicacion-item" ng-repeat="(key, foto) in publicacion.Fotos" style="background-image:url('{{foto.Url}}'); background-position:center; background-size:cover;" ng-click="photoSelect(foto.Url)"></div>
 				</slick>
 				<div class="publicidad">
 				</div>
@@ -185,8 +180,8 @@
 					<div>
 						<br>
 						<h5 class="naranja title_feat"><b>FEATURES</b></h5>
-						<div class="col-xs-6" ng-repeat="key in [1,2,3,4,5]">
-							-{{key}}
+						<div class="col-xs-6" ng-repeat="feature in publicacion.Features track by $index">
+							-{{feature.Nombre}}
 						</div>
 						<div style="clear:both;"></div>
 					</div>
@@ -208,28 +203,28 @@
 							<div class="dealer_information_title col-xs-6">
 								Nombre:
 							</div>
-							<div class="col-xs-6 dealer_information_resp"><b>AutoTren{{publicacion.Publicacion_Dealer.Nombre}}</b></div>
+							<div class="col-xs-6 dealer_information_resp"><b>{{publicacion.Publicacion_Dealer.Nombre}}</b></div>
 							<div style="clear:both;"></div>
 						</div>
 						<div>
 							<div class="dealer_information_title col-xs-6">
 								Telefono:
 							</div>
-							<div class="col-xs-6 dealer_information_resp">111-111-1234{{publicacion.Publicacion_Dealer.Telefono}}</div>
+							<div class="col-xs-6 dealer_information_resp">{{publicacion.Publicacion_Dealer.Telefono}}</div>
 							<div style="clear:both;"></div>
 						</div>
 						<div>
 							<div class="dealer_information_title col-xs-6">
 								WhatsApp:
 							</div>
-							<div class="col-xs-6 dealer_information_resp">111-111-1234{{publicacion.Publicacion_Dealer.WhatsApp}}</div>
+							<div class="col-xs-6 dealer_information_resp">{{publicacion.Publicacion_Dealer.WhatsApp}}</div>
 							<div style="clear:both;"></div>
 						</div>
 						<div>
 							<div class="dealer_information_title col-xs-6">
 								Dirección:
 							</div>
-							<div class="col-xs-6 dealer_information_resp">Av. Bolivar 75{{publicacion.Publicacion_Dealer.Direccion}}</div>
+							<div class="col-xs-6 dealer_information_resp">{{publicacion.Publicacion_Dealer.Direccion}}</div>
 							<div style="clear:both;"></div>
 						</div>
 					</div>
@@ -237,7 +232,7 @@
 				<div class="col-xs-6">
 					<div>
 						<!--<google-map class="mdn-details-dealler-maps" disableZoom="true" latitude="37.77493" longitude="-122.41942"></google-map>-->
-						<div class="mdn-details-dealler-maps" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&amp;zoom=16&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc');">
+						<div class="mdn-details-dealler-maps" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center={{publicacion.Publicacion_Dealer.Coordenadas}}&amp;zoom=16&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc');">
 							<!--<img src="https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&amp;zoom=16&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc">-->
 						</div>
 						<div style="clear:both"></div>

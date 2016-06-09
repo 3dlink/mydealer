@@ -1,18 +1,19 @@
+<div ng-init="perfilDealer()"></div>
 <div class="dealer-main perfil_dealer">
 	<div>
 		<div class="dealer-dash">
-			<div style="min-height:250px; background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=37.77493,-122.41942&amp;zoom=12&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc'); background-repeat: no-repeat; background-size: cover; background-position: center;" class="mapsDash"></div>
+			<div style="min-height:250px; background-image: url('https://maps.googleapis.com/maps/api/staticmap?center={{perfil.Coordenadas}}&amp;zoom=12&amp;size=640x400&amp;path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&amp;key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc'); background-repeat: no-repeat; background-size: cover; background-position: center;" class="mapsDash"></div>
 		</div>
 		<div class="dealer-info">			
 			<div class="container" style="max-width:1000px;">
 				<div class="col-xs-4">
 					<div class="espacio">
 						<div class="centrado">
-							<div class="dealer-perfil-photo">
+							<div class="dealer-perfil-photo" style="background-image: url('images/perfil.jpg');">
 								
 							</div>
 							<div class="dealer-names">
-								<h4>AUTO TREN</h4>
+								<h4>{{perfil.Nombre}}</h4>
 							</div>
 						</div>
 					</div>
@@ -26,22 +27,22 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<div class="col-xs-4 naranja">NOMBRE:</div>
-							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div class="col-xs-8" style="text-align:left;">{{perfil.Nombre}}</div>
 							<div style="clear:both;"></div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-4 naranja">TELÉFONO:</div>
-							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div class="col-xs-8" style="text-align:left;">{{perfil.Telefono}}</div>
 							<div style="clear:both;"></div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-4 naranja">WHATSAPP:</div>
-							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div class="col-xs-8" style="text-align:left;">{{perfil.WhatsApp}}</div>
 							<div style="clear:both;"></div>
 						</div>
 						<div class="form-group">
 							<div class="col-xs-4 naranja">DIRECCIÓN:</div>
-							<div class="col-xs-8" style="text-align:left;">desc</div>
+							<div class="col-xs-8" style="text-align:left;">{{perfil.Direccion}}</div>
 							<div style="clear:both;"></div>
 						</div>
 					</div>
@@ -59,8 +60,8 @@
 <div class="publicaciones-index publ_dealer">
 	<div class="container" style="max-width: 1000px;">
 		<div class="col-xs-12">
-			<h4 class="tittle">INVENTARIO DE CARROS</h4>
-			<small>Actualmente encuentras 32 vehículos publicados por NOMBRE DE DEALER</small>
+			<h4 class="tittle">INVENTARIO</h4>
+			<small>Actualmente encuentras {{publicaciones.length}} vehículos publicados por NOMBRE DE DEALER</small>
 			<div class="form-group">
 				<select name="" id="" class="form-control select_md" style="max-width:200px;float: left;margin-right: 10px;">
 					<option value="">Precio (Mayor a Menor)</option>
@@ -74,15 +75,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12">
-			<div class="results" ng-repeat="key in [1,2,3,4,5,6]">
+		<div ng-hide="visible" class="col-xs-12">
+			<div class="results" ng-repeat="publicacion in publicaciones">
 				<div class="col-xs-4 content">
 					<div class="result">
-						<div class="image-background"></div>
+						<div class="image-background">
+							<slick infinite="true" init-onload=true data="publicacion.Fotos" slides-to-show="1" slides-to-scroll="1" adaptiveHeight="true" style=" overflow: hidden;" >
+								<div  ng-repeat="(key, foto) in publicacion.Fotos" style="border-radius: 10px 10px 0 0; height: 240px; background-image:url('{{foto.Url}}'); background-position:center; background-size:cover;" ng-click="photoSelect(foto.Url)"></div>
+							</slick>
+						</div>
 						<div class="publicacion_container">
 						<div class="tittle-result">
 							<div class="col-xs-9">
-								<h4>HYUNDAI TUCSON</h4>
+								<h4>{{publicacion.Marca}} {{publicacion.Modelo}}</h4>
 								<span>Marca / Modelo / Trim / Descripción básica</span>	
 							</div>
 							<div class="col-xs-3 iconStar">
@@ -94,37 +99,37 @@
 							<div class="col-xs-3" style="padding:0;">
 								<span>
 									<i class="icon-mdn_calendar"></i>
-									<span>2003</span>
+									<span>{{publicacion['Año']}}</span>
 								</span>
 							</div>
 							<div class="col-xs-3" style="padding:0;">
 								<span>
 									<i class="icon-mdn_millaje"></i>
-									<span>40 Millas</span>
+									<span>{{publicacion.Millaje}} Millas</span>
 								</span>
 							</div>
 							<div class="col-xs-3" style="padding:0;">
 								<span>
 									<i class="icon-mdn_combustible"></i>
-									<span>Diesel</span>
+									<span>{{publicacion.Combustible}}</span>
 								</span>
 							</div>
 							<div class="col-xs-3" style="padding:0;color:black;">
 								<span>
 									<i style="color:black;" class="icon-mdn_currency"></i>
-									<span>Compra</span>
+									<span>{{publicacion.Tipo}}</span>
 								</span>
 							</div>
 						</div>
 						<div style="clear:both;"></div>	
 						<div class="col-xs-12">
 							<div class="price">
-								<div><h5 style="margin-bottom: 15px;">DOP 515.120</h5></div>
+								<div><h5 style="margin-bottom: 15px;">DOP {{publicacion.PrecioEnDOP| currency}}</h5></div>
 							</div>
 						</div>
 						<div class="col-xs-12">
 							<div class="actions">
-								<button>DETALLES</button>
+								<a href="#/publicacion/{{publicacion.Id}}">DETALLES</a>
 							</div>
 						</div>
 					</div>
@@ -132,14 +137,18 @@
 				</div>
 			</div>			
 		</div>
-		<div class="results" ng-repeat="key in [1,2,3,4]">
+		<div ng-show="visible" class="results" ng-repeat="publicacion in publicaciones">
 				<div class="col-xs-12 content">
 					<div class="result" style="padding-bottom: 0;">
-						<div class="col-xs-4 image-background brg-list"></div>
+						<div class="col-xs-4 image-background brg-list" style="padding: 0;">
+							<slick infinite="true" init-onload=true data="publicacion.Fotos" slides-to-show="1" slides-to-scroll="1" adaptiveHeight="true" style="margin: 0; overflow: hidden;" >
+								<div  ng-repeat="(key, foto) in publicacion.Fotos" style="border-radius: 10px 0px 0 10px; height: 240px; margin: 0; background-image:url('{{foto.Url}}'); background-position:center; background-size:cover;" ng-click="photoSelect(foto.Url)"></div>
+							</slick>
+						</div>
 						<div class="col-xs-8 desc_list">
 							<div class="tittle-result">
 								<div class="col-xs-9">
-									<h4>HYUNDAI TUCSON</h4>
+									<h4>{{publicacion.Marca}} {{publicacion.Modelo}}</h4>
 									<span>Marca / Modelo / Trim / Descripción básica</span>	
 								</div>
 								<div class="col-xs-3 iconStar">
@@ -157,25 +166,25 @@
 									<div class="col-xs-3" style="padding:0;">
 										<span>
 											<i class="icon-mdn_calendar"></i>
-											<span>2003</span>
+											<span>{{publicacion['Año']}}</span>
 										</span>
 									</div>
 									<div class="col-xs-3" style="padding:0;">
 										<span>
 											<i class="icon-mdn_millaje"></i>
-											<span>40 Millas</span>
+											<span>{{publicacion.Millaje}} Millas</span>
 										</span>
 									</div>
 									<div class="col-xs-3" style="padding:0;">
 										<span>
 											<i class="icon-mdn_combustible"></i>
-											<span>Diesel</span>
+											<span>{{publicacion.Combustible}}</span>
 										</span>
 									</div>
 									<div class="col-xs-3" style="padding:0;">
 										<span>
 											<i class="icon-mdn_currency" style="color:black;"></i>
-											<span>Compra</span>
+											<span>{{publicacion.Tipo}}</span>
 										</span>
 									</div>
 								</div>

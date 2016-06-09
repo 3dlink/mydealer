@@ -13,20 +13,20 @@
 			<div class="contact-form-content">
 				<div class="col-xs-6">
 					<form action="" class="contact-form">
-						<input class="form-control" placeholder="Nombre"></input>
-						<input class="form-control" placeholder="Mail"></input>
-						<select class="form-control" placeholder="Asunto">
-							<option value="" selected disabled >Asunto</option>
-							<option value="">Servicio al cliente</option>
-							<option value="">Sugerencia</option>
-							<option value="">Afiliarse</option>
-							<option value="">Reportar error/avería</option>
-							<option value="">Otro</option>
+						<input class="form-control" placeholder="Nombre" ng-model="contact.user"></input>
+						<input class="form-control" placeholder="Mail" ng-model="contact.mail"></input>
+						<select class="form-control" placeholder="Asunto" ng-model="contact.asunto">
+							<option value="Otro" selected disabled >Asunto</option>
+							<option value="Servicio al cliente">Servicio al cliente</option>
+							<option value="Sugerencia">Sugerencia</option>
+							<option value="Afiliarse">Afiliarse</option>
+							<option value="Reportar error/avería">Reportar error/avería</option>
+							<option value=""Otro>Otro</option>
 						</select>
-						<textarea class="form-control" placeholder="Tu mensaje" name="" id="" cols="30" rows="10"></textarea>
+						<textarea ng-model="contact.detalle" class="form-control" placeholder="Tu mensaje" name="" id="" cols="30" rows="10"></textarea>
 						<br>
 						<div class="form-group">
-							<button class="mdn-btn">ENVIAR</button>
+							<button type="button" class="mdn-btn" ng-click="sendMail()">ENVIAR</button>
 						</div>
 						
 					</form>
